@@ -1,0 +1,47 @@
+http:
+  routers:
+    auth:
+      rule: 'PathPrefix(`/api/auth`) || PathPrefix(`/api/api-keys`)'
+      entryPoints:
+        - web
+      service: auth
+      middlewares:
+        - strip-api
+
+    voice:
+      rule: 'PathPrefix(`/api/voices`) || PathPrefix(`/api/library`)'
+      entryPoints:
+        - web
+      service: voice
+      middlewares:
+        - strip-api
+
+    worker:
+      rule: 'PathPrefix(`/api/tts`)'
+      entryPoints:
+        - web
+      service: worker
+      middlewares:
+        - strip-api
+
+  services:
+    auth:
+      loadBalancer:
+        servers:
+          - url: 'http://host.docker.internal:3001'
+
+    voice:
+      loadBalancer:
+        servers:
+          - url: 'http://host.docker.internal:3002'
+
+    worker:
+      loadBalancer:
+        servers:
+          - url: 'http://host.docker.internal:3003'
+
+  middlewares:
+    strip-api:
+      stripPrefix:
+        prefixes:
+          - '/api'

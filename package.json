@@ -1,0 +1,32 @@
+{
+  "name": "iilevenn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "clean": "pnpm -r clean",
+    "infra": "docker compose up -d postgres redis rabbitmq minio traefik",
+    "infra:down": "docker compose down",
+    "infra:logs": "docker compose logs -f",
+    "infra:ps": "docker compose ps",
+    "db:generate": "pnpm --filter @iilevenn/db generate",
+    "db:migrate": "pnpm --filter @iilevenn/db migrate",
+    "db:seed": "pnpm --filter @iilevenn/db seed",
+    "db:studio": "pnpm --filter @iilevenn/db studio",
+    "dev:auth": "pnpm --filter @iilevenn/auth dev",
+    "dev:voice": "pnpm --filter @iilevenn/voice dev",
+    "dev:worker": "pnpm --filter @iilevenn/worker dev",
+    "dev:web": "pnpm --filter @iilevenn/web dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.2",
+  "devDependencies": {
+    "@types/node": "^25.3.2",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3"
+  }
+}
