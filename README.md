@@ -1,7 +1,7 @@
 # iilevenn
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&text=iilevenn&height=200&fontSize=80&animation=fadeIn&desc=Voice+Synthesis+Platform&descAlignY=50&descSize=30" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&text=iilevenn&height=200&fontSize=80&animation=fadeIn&desc=&descAlignY=50&descSize=30" />
 </p>
 
 <p align="center">
